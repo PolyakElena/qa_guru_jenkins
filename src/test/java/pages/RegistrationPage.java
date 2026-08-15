@@ -152,8 +152,7 @@ public class RegistrationPage {
 
     @Step("Check that field \"{key}\" has result \"{value}\"")
     public RegistrationPage checkResult(String key, String value) {
-        $(".table-responsive").$(byText(key)).parent()
-                .shouldHave(text(value));
+        checkResultTableComponent.checkResult(key, value);
 
         return this;
     }

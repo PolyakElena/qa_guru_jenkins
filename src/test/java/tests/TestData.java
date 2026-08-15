@@ -24,11 +24,8 @@ public class TestData {
     public String subject = getRandomSubject();
     public String state = getRandomState();
     public String city = generateCity(state);
-    public String picture = "resources/img/picture.png";
+    public String picture = "img/picture.png";
+    public String resultsPicture = "picture.png";
 
-//    public String wrongEmail = fakerRu.internet().emailAddress();
-//    public String shortEmail = RandomUtils.getRandomString(3);
-//    public String wrongNumber = RandomUtils.getRandomString(2);
-//    public String emptyNumber = "";
 
 }

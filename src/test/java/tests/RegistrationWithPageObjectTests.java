@@ -29,7 +29,7 @@ public class RegistrationWithPageObjectTests extends TestBase {
                     .setDateOfBirth(testData.day, testData.month, testData.year)
                     .typeSubjects(testData.subject)
                     .setHobby(testData.hobby)
-//                    .uploadPicture(testData.picture)
+                    .uploadPicture(testData.picture)
                     .typeAddress(testData.currentAddress)
                     .setStateAndCity(testData.state, testData.city)
                     .submitClick();
@@ -44,39 +44,38 @@ public class RegistrationWithPageObjectTests extends TestBase {
                     .checkResult("Student Email", testData.userEmail)
                     .checkResult("Gender", testData.genter)
                     .checkResult("Mobile", testData.userNumber)
-//                    .checkResult("Date of Birth", testData.data)
                     .checkResult("Subjects", testData.subject)
                     .checkResult("Hobbies", testData.hobby)
-//                    .checkResult("Picture", testData.picture)
+                    .checkResult("Picture", testData.resultsPicture)
                     .checkResult("Address", testData.currentAddress)
                     .checkResult("State and City", testData.state + " " + testData.city);
 
         });
     }
 
-//    @Test
-//    @DisplayName("Broken Registration")
-//    void brokenRegistrationTest() {
-//        step("Open registration page", () ->
-//                registrationPage.openPage());
-//
-//        step("Fill registration form", () -> {
-//            registrationPage
-//                    .setFirstName("Alex")
-//                    .setLastName("Egorov")
-//                    .setGender("Other")
-//                    .setUserNumber("1234567890");
-//            $("#submit").click();
-//        });
-//
-//        step("Check registration form results data", () -> {
-//            step("Check registration form results component appears", () -> { // or move to pageobject step
-//                $(".modal-dialog").should(appear);
-//                $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-//            });
-//
-//            registrationPage.checkResult("Student Name", "Alex Egorov")
-//                    .checkResult("Student Email", "alex111@egorov.com");
-//        });
-//    }
+    @Test
+    @DisplayName("Broken Registration")
+    void brokenRegistrationTest() {
+        step("Open registration page", () ->
+                registrationPage.openPage());
+
+        step("Fill registration form", () -> {
+            registrationPage
+                    .typeFirstName("Alex")
+                    .typeLastName("Egorov")
+                    .setGender("Other")
+                    .typeUserNumber("1234567890");
+            $("#submit").click();
+        });
+
+        step("Check registration form results data", () -> {
+            step("Check registration form results component appears", () -> { // or move to pageobject step
+                $(".modal-dialog").should(appear);
+                $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+            });
+
+            registrationPage.checkResult("Student Name", "Alex Egorov")
+                    .checkResult("Student Email", "alex111@egorov.com");
+        });
+    }
 }
