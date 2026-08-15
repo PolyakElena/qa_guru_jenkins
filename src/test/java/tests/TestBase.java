@@ -21,9 +21,9 @@ public class TestBase {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
         Configuration.browser = "chrome";
-        Configuration.browserVersion = "148.0";
-//        Configuration.browserVersion = "130.0";
-        Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
+//        Configuration.browserVersion = "148.0";
+////        Configuration.browserVersion = "130.0";
+//        Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
     }
 
 }
