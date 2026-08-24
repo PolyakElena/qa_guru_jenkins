@@ -59,18 +59,19 @@ public class PositiveTests {
     @Test
     void someTest9() {
 //        "- адрес тестируемого сайта" https://demoqa.com
-        String url = System.getProperty("baseUrl");
-        System.out.println("Test baseUrl is " + url);
+        String baseUrl = System.getProperty("baseUrl");
+        System.out.println("Test baseUrl is " + baseUrl);
 
 //                "- адрес удаленного браузера (selenoid)\n"
         String urlSelenoid = System.getProperty("urlSelenoid");
         System.out.println("Test urlSelenoid is " + urlSelenoid);
 
 //                "- браузер, версию браузера, параметр headless, разрешение экрана"
-
         String browser = System.getProperty("browser", "chrome");
+
 //        Configuration.browser = "chrome";
         String browserVersion = System.getProperty("browserVersion", "148.0");
+
         //        Configuration.browserVersion = "148.0";
         String headless = System.getProperty("headless");
         String browserSize = System.getProperty("browserSize", "1920x1080");
