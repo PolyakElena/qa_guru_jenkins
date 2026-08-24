@@ -27,10 +27,11 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-//        Configuration.baseUrl = "https://demoqa.com";
-//        Configuration.browserSize = "1920x1080";
-//        Configuration.browser = "chrome";
-//        Configuration.browserVersion = "148.0";
+        String baseUrl = System.getProperty("baseUrl");
+        String browserSize = System.getProperty("browserSize", "1920x1080");
+        String browser = System.getProperty("browser", "chrome");
+        String browserVersion = System.getProperty("browserVersion", "148.0");
+        String headless = System.getProperty("headless", String.valueOf(false));
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments(List.of("--disable-dev-shm-usage", "--no-sandbox"));
@@ -40,8 +41,17 @@ public class TestBase {
                 "enableVideo", true
         ));
         Configuration.browserCapabilities = capabilities;
-//        Configuration.remote = "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub";
+        String urlSelenoid = System.getProperty("urlSelenoid", "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub");
+        Configuration.remote = urlSelenoid;
+
+        System.out.println("Test baseUrl is " + baseUrl);
+        System.out.println("Test browser is " + browser +
+                " browserVersion is " + browserVersion +
+                " headless is " + headless +
+                " browserSize is " + browserSize);
+        System.out.println("Test urlSelenoid is " + urlSelenoid);
     }
+
 
     @AfterEach
     void addAttachments() {
