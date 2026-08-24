@@ -44,10 +44,10 @@ public class TestBase {
         String urlSelenoid = System.getProperty("urlSelenoid", "https://qa_engineer:-aAb_-4gs53FD@selenoid.qa.guru/wd/hub");
         Configuration.remote = urlSelenoid;
 
-        System.out.println("Test baseUrl is " + baseUrl);
-        System.out.println("Test browser is " + browser +
-                " browserVersion is " + browserVersion +
-                " headless is " + headless +
+        System.out.println("Test baseUrl is " + baseUrl + ",");
+        System.out.println("Test browser is " + browser + "," +
+                " browserVersion is " + browserVersion + "," +
+                " headless is " + headless + "," +
                 " browserSize is " + browserSize);
         System.out.println("Test urlSelenoid is " + urlSelenoid);
     }
